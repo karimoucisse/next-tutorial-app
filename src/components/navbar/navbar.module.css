@@ -4,7 +4,7 @@
     flex-direction: row;
     align-items: center;
     height: 70px;
-    background-color: rgb(13, 13, 187);
+    background-color: #212A2F;
     padding: 0 150px;
 }
 .logoContainer
@@ -14,6 +14,7 @@
     flex: 1;
     text-transform: uppercase;
     font-weight: 600;
+    color: white;
 }
 .nav_list 
 {
@@ -22,4 +23,20 @@
     gap: 30px;
     flex: 3;
     text-transform: capitalize;
+}
+.nav_list .element
+{
+    color: aliceblue;
+    transition: all ease-in-out 0.2s;
+}
+.nav_list .element:hover
+{
+    color: white;
+    text-decoration: underline;
+}
+.active 
+{
+    color: white;
+    text-decoration: underline;
+    font-weight: 500;
 }

@@ -1,17 +1,23 @@
+"use client"
 import Link from "next/link"
 import styles from "./navbar.module.css"
-const NavList = () => {
+import { usePathname } from "next/navigation"
 
-    const list = [
-        {name: "Accueil", link: "/"},
-        {name: "Contact", link: "/contact"},
-        {name: "Blog", link: "/blog"},
-        {name: "admin", link: "/admin"}
-    ]
+const NavList = () => {
+  const pathName = usePathname();
+
+  const list = [
+      {name: "Accueil", link: "/"},
+      {name: "Contact", link: "/contact"},
+      {name: "Blog", link: "/blog"},
+      {name: "admin", link: "/admin"}
+  ]
   return (
     <div className={styles.nav_list}>
         {list.map((element, index) => (
-            <Link key={index} href= {element.link}>{element.name}</Link>
+            <Link key={index} href= {element.link} className={`${styles.element} ${element.link == pathName && styles.active}`}>
+              {element.name}
+            </Link>
         ))}
     </div>
   )
