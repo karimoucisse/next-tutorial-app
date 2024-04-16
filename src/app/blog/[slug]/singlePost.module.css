@@ -1,0 +1,25 @@
+.container
+{
+    display: flex;
+    padding: 80px;
+}
+
+.left
+{
+    position: relative;
+    width: 400px;
+    height: 60vh;
+    display: flex;
+    flex: 1;
+}
+.right
+{   
+    display: flex;
+    flex: 1; 
+    padding: 20px 50px;
+}
+.right p
+{
+    max-width: 400px;
+    font-size: larger;
+}
