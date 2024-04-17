@@ -13,6 +13,8 @@ const SingleCart = () => {
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             </p>
+            <p>utilisateur: Karimou Cisse</p>
+            <p>Date de création: 01/04/2001 </p>
         </div>
       </Link>
     </div>

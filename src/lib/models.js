@@ -38,6 +38,11 @@ const postSchema = mongoose.Schema({
         type: string,
         required: true,
         unique: true
+    },
+    sluf: {
+        type: string,
+        required: true,
+        unique: true
     }
 }, {timestamps: true})
 
