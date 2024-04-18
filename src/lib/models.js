@@ -2,49 +2,48 @@ import mongoose from "mongoose"
 
 const userSchema = mongoose.Schema({
     username: {
-        type: string, 
+        type: String, 
         required: true, 
         unique: true, 
         min: 3, max: 22
     },
     email: {
-        type: email, 
+        type: String, 
         required: true, 
         unique: true
     },
     password: {
-        type: password,
+        type: String,
         required: true, 
         min: 8
     },
-    img: {type: string},
+    img: {type: String},
     isAdmin: {
-        type: boolean, 
+        type: Boolean, 
         default: false
     }
 }, {timestamps: true})
 
 const postSchema = mongoose.Schema({
     title: {
-        type: string,
+        type: String,
         required: true
     },
     desc: {
-        type: string,
+        type: String,
         required: true,
     },
-    img: {type: string},
+    img: {type: String},
     userId: {
-        type: string,
+        type: String,
         required: true,
-        unique: true
     },
-    sluf: {
-        type: string,
+    slug: {
+        type: String,
         required: true,
         unique: true
     }
 }, {timestamps: true})
 
-export const User = mongoose.User.models("User", userSchema)
-export const Post = mongoose.Post.models("Post", postSchema)
+export const User = mongoose.models.User || mongoose.model("User", userSchema)
+export const Post = mongoose.models.Post || mongoose.model("Post", postSchema)

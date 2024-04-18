@@ -1,14 +1,14 @@
 import SingleCart from "@/components/singlecart/SingleCart"
 import styles from "./blog.module.css"
+import { getPosts } from "@/lib/data"
 
-const BlogPage = () => {
+const BlogPage = async () => {
+  const posts = await getPosts()
   return (
     <div className= {styles.container}>
-      <SingleCart/>
-      <SingleCart/>
-      <SingleCart/>
-      <SingleCart/>
-      <SingleCart/>
+      {posts?.map(post => (
+        <SingleCart post= {post} key={post.title}/>
+      ))}
     </div>
   )
 }

@@ -1,7 +1,6 @@
 .container
 {
     width: 400px;
-    height: 400px;
     box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.1);
 }
 .image_container
@@ -13,4 +12,7 @@
 .description
 {
     padding: 20px;
+}
+.description p {
+    margin-bottom: 5px;
 }

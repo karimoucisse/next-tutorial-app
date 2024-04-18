@@ -2,21 +2,23 @@ import Image from "next/image"
 import styles from "./singlecart.module.css"
 import Link from "next/link"
 
-const SingleCart = () => {
+const SingleCart = ({post}) => {
   return (
     <div className= {styles.container}>
-      <Link href= "/blog/post">
-        <div className= {styles.image_container}>
-            <Image src= "/photo.jpg" fill/>
-        </div>
+      {post ?
+        <Link href= {`/blog/${post.slug}`}>
+          {post.img &&
+            <div className= {styles.image_container}>
+              <Image src= {post.img} fill/>
+            </div>
+          }
         <div className= {styles.description}>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            </p>
-            <p>utilisateur: Karimou Cisse</p>
+            <p>{post.desc}</p>
+            <p>Utilisateur: {post.userId}</p>
             <p>Date de création: 01/04/2001 </p>
         </div>
-      </Link>
+      </Link> : null
+      }
     </div>
   )
 }

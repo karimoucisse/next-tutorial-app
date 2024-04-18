@@ -1,11 +1,12 @@
 import { Post } from "./models";
+import { User } from "./models";
 import { connectToDb } from "./utils"
 
 export const getPosts = async () => {
     try {
-        connectToDb();
+        await connectToDb();
         const posts = await Post.find()
-        return posts
+        return posts || []
     } catch (error) {
         console.error(error);
     }
@@ -13,9 +14,9 @@ export const getPosts = async () => {
 
 export const getPost = async (slug) => {
     try {
-        connectToDb();
-        const post = await Post.find({slug})
-        return post
+        await connectToDb();
+        const post = await Post.findOne({slug})
+        return post || null
     } catch (error) {
         console.error(error);
     }
@@ -23,9 +24,9 @@ export const getPost = async (slug) => {
 
 export const getUsers = async () => {
     try {
-        connectToDb();
+        await connectToDb();
         const users = await User.find()
-        return users
+        return users || []
     } catch (error) {
         console.error(error);
     }
@@ -33,9 +34,9 @@ export const getUsers = async () => {
 
 export const getUser = async (id) => {
     try {
-        connectToDb();
+        await connectToDb();
         const user = await User.findById(id)
-        return user
+        return user || null
     } catch (error) {
         console.error(error);
     }
