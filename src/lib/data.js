@@ -3,23 +3,19 @@ import { User } from "./models";
 import { connectToDb } from "./utils"
 
 export const getPosts = async () => {
-    try {
-        await connectToDb();
-        const posts = await Post.find()
-        return posts || []
-    } catch (error) {
-        console.error(error);
+    const data = await fetch("http://localhost:3000/api/blog")
+    if(!data.ok){
+        throw new Error("error in get posts fetch request")
     }
+    return data.json()
 }
 
 export const getPost = async (slug) => {
-    try {
-        await connectToDb();
-        const post = await Post.findOne({slug})
-        return post || null
-    } catch (error) {
-        console.error(error);
-    }
+        const post = await fetch(`http://localhost:3000/api/blog/${slug}`)
+        if(!post.ok){
+            throw new Error("error in get post fetch request")
+        }
+        return post.json()
 }
 
 export const getUsers = async () => {
