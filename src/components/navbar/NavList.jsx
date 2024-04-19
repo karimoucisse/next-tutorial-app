@@ -10,7 +10,8 @@ const NavList = () => {
       {name: "Accueil", link: "/"},
       {name: "Contact", link: "/contact"},
       {name: "Blog", link: "/blog"},
-      {name: "admin", link: "/admin"}
+      {name: "Login", link: "/login"},
+      {name: "Admin", link: "/admin"}
   ]
   return (
     <div className={styles.nav_list}>
