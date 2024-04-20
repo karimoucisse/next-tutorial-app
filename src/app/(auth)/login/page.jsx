@@ -9,13 +9,20 @@ const LoginPage = async ()  => {
     "use server"
     await signIn("github")
   }
+  const handleLogin = async (data) => {
+    "use server"
+    const {email, password} = Object.fromEntries(data)
+    console.log(email, password);
+  }
   return (
     <div className= {styles.container}>
       <form action= {handleGithubLogin}>
-        {/* <input type="string" placeholder="Name"/>
-        <input type="email" placeholder="Email"/>
-        <input type="password" placeholder="Password"/> */}
-        <button>Valider</button>
+        <button>Login with github</button>
+      </form>
+      <form action={handleLogin}>
+        <input type="email" placeholder="Email" name="email"/>
+        <input type="password" placeholder="Password" name="password"/>
+        <button>Login</button>
       </form>
     </div>
   )
