@@ -5,7 +5,6 @@ const LoginPage = async ()  => {
 
   const session = await auth()
 
-  console.log(session);
   const handleGithubLogin = async () => {
     "use server"
     await signIn("github")
