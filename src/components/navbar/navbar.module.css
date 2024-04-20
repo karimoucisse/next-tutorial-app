@@ -40,3 +40,11 @@
     text-decoration: underline;
     font-weight: 500;
 }
+.container button {
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+}
